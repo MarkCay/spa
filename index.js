@@ -9,7 +9,7 @@ api.get(
 );
 
 window.onload = () => {
-  const a = document.getElementsByTagName("a");
+  const a = document.querySelectorAll("a.spa");
   renderRoute();
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("click", (event) => {
