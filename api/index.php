@@ -1,20 +1,8 @@
 <?php
+require "config.php";
+require "database/Database.php";
 /* Turn off PHP warning */
 error_reporting(E_ERROR | E_PARSE);
-
-/* API key configuration */
-$x_api_key = array(
-  'is_enabled' => true,
-  'key' => 'X-API-KEY',
-  'value' => 'MORK_COY'
-);
-/* Basic authentication configuration */
-$basic_auth = array(
-  'is_enabled' => true,
-  'user' => 'markcay',
-  'password' => 'mysql_markcay'
-);
-
 class Api
 {
   public function __construct($x_api_key_config, $basic_auth_config)
@@ -77,6 +65,12 @@ $params = explode('/', $path);
 array_shift($params);
 
 $api = new Api($x_api_key, $basic_auth);
+$db_config = new DatabaseConfig;
+$db_config->host = $database['host'];
+$db_config->database = $database['database'];
+$db_config->user = $database['user'];
+$db_config->password = $database['password'];
+$db = new Database($db_config, true);
 include($api_lookup_with_params);
 include($api_lookup);
 include("$api_lookup_with_http_method");

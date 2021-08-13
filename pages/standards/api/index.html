@@ -1,0 +1,56 @@
+<h1>API Standards</h1>
+<style>
+  li {
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  h2 {
+    text-align: center;
+  }
+</style>
+<h2><a target="_blank" href="https://www.youtube.com/watch?v=ER32ax96skk&t=789s"><i>10 Best Practices For Developing an
+      API
+      by Peter
+      Fisher</i></a></h2>
+<ol>
+  <li>Don't expose database schema in response of your API endpoints by not keeping database field names same as API
+    field names</li>
+  <li>Don't expose the IDs of the records if you can help it, and keep the IDs random and not in incremental orders,
+    so that it is not like 1,2 3. This helps in not allowing someone to know the details of other IDs by querying them
+    incrementally</li>
+  <li>Try and use HTTPS everywhere, and try and keep everything as encrypted as possible, to keep the user credentials
+    and
+    other sensitive information as secure as possible.</li>
+  <li>Explaining other API endpoints in the API return that you are using, e.g. if the API endpoint is /customer then
+    keep
+    a section in the response to explain the developer/(user of the API)
+    that they can use other endpoints like /customerDetails /customerOrder with the help of the original API response.
+  </li>
+  <li>API versioning - Keeping versions of the APIs, to keep the old API users still in good shapes and resolve bugs in
+    the new APIs version.
+    Keeping 2 or more versions of the same API might also be required for some other factors to keep the mobile,
+    desktop,
+    tablet all running at the same time or maybe some features are on 1st version and others on 2nd version.</li>
+  <li>
+    HTTP STATUS CODES - Using wrong HTTP status code is not a good practice. Also try to explain the http status code
+    meaning in the documentation you have created.
+  </li>
+  <li>Rate limit and throttling, do this first to keep scaling your API. Rate Limit to some threshold to keep specific
+    entity to allow to query only specific number of times in certain period so that it is servable to large pool of
+    users
+    everytime.
+    Rate limit also helps in reducing denial of service attack.</li>
+  <li>After API rate limit is reached we have authorization and authentication by using something like OAuth2</li>
+  <li>Keep everything consistent by using proper naming convention throwout e.g. calling user as user everywhere and not
+    customer in one place and user in other places. Perhaps if need arrise change your thinking to this is a user of
+    type
+    customer here.</li>
+  <li>API clients -> If there are several API clients in different code base but using the same API then keep the single
+    API code base for all of them and import that library or inject that as a dependency into their code base.
+    So you don't end up copying the API code base in all different clients and keeping them all consistent by changing
+    at
+    multiple places. You will have only one place to change if you keep it is single code base.
+    The testing of the API also becomes easy and isolated and do not rely on the API client by keeping single code base
+  </li>
+</ol>

@@ -12,9 +12,21 @@ const routes = [
     template: "main.html",
   },
   {
-    path: "members",
-    page: "members/index.html",
-    title: "Members",
+    path: "attendance",
+    page: "attendance/index.html",
+    title: "Attendance",
+    template: "main.html",
+  },
+  {
+    path: "team",
+    page: "team/index.html",
+    title: "Team",
+    template: "main.html",
+  },
+  {
+    path: "standards/api",
+    page: "standards/api/index.html",
+    title: "API Standards",
     template: "main.html",
   },
 ];
@@ -33,11 +45,23 @@ const loadPage = (title, pageUrl, isSuccess = (flag) => {}) => {
 };
 
 const renderRoute = () => {
+  showLoader(true);
   let paths = window.location.pathname.split("/");
   paths.shift();
   paths.shift();
   let routePath = paths.toString().replace(/,/g, "/");
   let filtered = routes.filter((route) => route.path === routePath);
+
+  let spaLinks = document.querySelectorAll("a.spa");
+
+  for (let i = 0; i < spaLinks.length; i++) {
+    const href = spaLinks[i].href;
+    if (window.location.href === href) {
+      spaLinks[i].classList.add("active");
+    } else {
+      spaLinks[i].classList.remove("active");
+    }
+  }
 
   if (filtered.length === 0) {
     loadPage(
