@@ -29,6 +29,12 @@ const routes = [
     title: "API Standards",
     template: "main.html",
   },
+  {
+    path: "tutorials/speedrun-courses",
+    page: "tutorials/speedrun-courses/index.html",
+    title: "Speedrun Courses",
+    template: "main.html",
+  },
 ];
 
 const loadPage = (title, pageUrl, isSuccess = (flag) => {}) => {

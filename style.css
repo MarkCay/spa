@@ -185,4 +185,14 @@ section {
   border-radius: 10px;
   margin-right: 10px;
 }
+
+button,
+.btn {
+  background-color: #f46522;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

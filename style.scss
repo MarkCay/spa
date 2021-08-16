@@ -62,8 +62,8 @@ section {
   min-height: 70vh;
   max-width: 800px;
   margin: 0 auto;
-  // background-color: red;
-  // background-color: rgb(240, 240, 240);
+  // border-left: 1px solid red;
+  // border-right: 1px solid red;
 }
 
 $breakpoint-tablet: 768px;
@@ -136,4 +136,14 @@ $breakpoint-tablet: 768px;
   background-color: red;
   border-radius: 10px;
   margin-right: 10px;
+}
+
+button,
+.btn {
+  background-color: $orange;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }
